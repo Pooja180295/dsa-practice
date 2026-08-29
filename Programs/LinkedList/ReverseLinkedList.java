@@ -1,4 +1,4 @@
-//Search an element
+//Reverse Linked List
 import java.util.*;
 class Main {
 
@@ -15,24 +15,27 @@ class Main {
         Node a = new Node(10);
         Node b = new Node(20);
         Node c = new Node(30);
-        Node d = new Node(40);
-        Node e = new Node(50);
 
         a.next = b;
         b.next = c;
-        c.next = d;
-        d.next = e;
 
         Node current = a;
-        int target = 50;
+        Node next;
+        Node previous = null;
 
         while(current!=null){
-            if(current.data==target){
-                System.out.println("Found");
-                return;
-            }
-            current = current.next;
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
         }
-        System.out.println("Not found");
+        a = previous;
+
+        //Print reversed list
+        Node temp = a;
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
    }
 }

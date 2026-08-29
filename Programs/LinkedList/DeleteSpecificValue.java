@@ -1,4 +1,5 @@
-//Search an element
+//Delete a specific value
+//Delete 20
 import java.util.*;
 class Main {
 
@@ -16,23 +17,25 @@ class Main {
         Node b = new Node(20);
         Node c = new Node(30);
         Node d = new Node(40);
-        Node e = new Node(50);
 
         a.next = b;
         b.next = c;
         c.next = d;
-        d.next = e;
 
         Node current = a;
-        int target = 50;
 
-        while(current!=null){
-            if(current.data==target){
-                System.out.println("Found");
-                return;
+        while(current.next!=null){
+            if(current.next.data==20) {
+                current.next = current.next.next;
+                break;
             }
             current = current.next;
         }
-        System.out.println("Not found");
+        current = a;
+
+        while(current!=null){
+            System.out.println(current.data);
+            current = current.next;
+        }
    }
 }

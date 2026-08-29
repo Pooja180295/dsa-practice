@@ -1,4 +1,4 @@
-//Search an element
+//Find middle element
 import java.util.*;
 class Main {
 
@@ -24,15 +24,13 @@ class Main {
         d.next = e;
 
         Node current = a;
-        int target = 50;
+        Node fast = current; //moves by 2
+        Node slow = current; //moves by 1
 
-        while(current!=null){
-            if(current.data==target){
-                System.out.println("Found");
-                return;
-            }
-            current = current.next;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        System.out.println("Not found");
+        System.out.println(slow.data);
    }
 }
